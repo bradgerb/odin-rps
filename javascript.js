@@ -1,6 +1,7 @@
 console.log("Hello World");
 
 let computerChoice = "";
+let humanChoice = "";
 
 function getComputerChoice() {
     let n = Math.random();
@@ -21,3 +22,19 @@ function getComputerChoice() {
 }
 
 console.log(getComputerChoice(computerChoice));
+
+function getHumanChoice() {
+    let i = 0;
+    while (i < 1){
+        humanChoice = prompt("Pick rock, paper, or sissors.");
+        if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "sissors") {
+            i++;
+        } else {
+            alert ("Try again");
+        }
+    }
+
+    return(humanChoice)
+}
+
+console.log(getHumanChoice(humanChoice));
