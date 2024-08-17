@@ -18,14 +18,10 @@ function getComputerChoice() {
     } else {
         computerChoice = "scissors"
     }
-
-    console.log(n);
-    console.log(computerChoice);
-
-    return(computerChoice)
 }
 
-console.log(getComputerChoice(computerChoice));
+getComputerChoice();
+console.log(computerChoice);
 
 function getHumanChoice() {
     let i = 0;
@@ -37,64 +33,60 @@ function getHumanChoice() {
             alert ("Try again");
         }
     }
-
-    return(humanChoice)
 }
 
-console.log(getHumanChoice(humanChoice));
+getHumanChoice();
+console.log(humanChoice);
 
 function playRound() {
-    let round = 1;
     let winner = "";
-    // while (round <= 5){
-        if (humanChoice === "rock") {
-            if (computerChoice === "rock") {
-                winner = "Tie, play again";
-            } else if (computerChoice === "paper") {
-                winner = "You lose, paper beats rock.";
-                round++;
-            } else {
-                winner = "You win, scissors beats paper.";
-                round++;
-            }
-        } else if (humanChoice === "paper") {
-            if (computerChoice === "rock") {
-                winner = "You win, paper beats rock.";
-                round++;
-            } else if (computerChoice === "paper") {
-                winner = "Tie, play again";
-            } else {
-                winner = "You lose, scissors beats paper.";
-                round++;
-            }
+    if (humanChoice === "rock") {
+        if (computerChoice === "rock") {
+            winner = "Tie, play again";
+        } else if (computerChoice === "paper") {
+            winner = "You lose, paper beats rock.";
         } else {
-            if (computerChoice === "rock") {
-                winner = "You lose, rock beats scissors.";
-                round++;
-            } else if (computerChoice === "paper") {
-                winner = "You win, scissors beats paper";
-                round++;
-            } else {
-                winner = "Tie, play again";
-            }
+            winner = "You win, rock beats scissors.";
         }
-        console.log("Round "+round+". "+winner);
-        if (round === 5){
-            end++;
+    } else if (humanChoice === "paper") {
+        if (computerChoice === "rock") {
+            winner = "You win, paper beats rock.";
+        } else if (computerChoice === "paper") {
+            winner = "Tie, play again";
+        } else {
+            winner = "You lose, scissors beats paper.";
+        }
+    } else {
+        if (computerChoice === "rock") {
+            winner = "You lose, rock beats scissors.";
+        } else if (computerChoice === "paper") {
+            winner = "You win, scissors beats paper";
+        } else {
+            winner = "Tie, play again";
         }
     }
+    return winner
+}
 
-    if (end > 0){
-        if (humanScore > computerScore) {
-            winMessage="You win!"
-        } else {
-            winMessage="Computer wins."
-        }
-    }
+// playRound();
+console.log(playRound());
 
-    console.log("Final score, player " + humanScore + ", computer " + computerScore + ". " + winMessage);
+
+// console.log("Round "+round+". "+winner);
+
+// if (round === 5){
+//     end++;
+// }
+
+// if (end > 0){
+//     if (humanScore > computerScore) {
+//         winMessage="You win!"
+//     } else {
+//         winMessage="Computer wins."
+//     }
+// }
+
+// console.log("Final score, player " + humanScore + ", computer " + computerScore + ". " + winMessage);
 
     // return winMessage
 // }
-
-console.log(playRound());
