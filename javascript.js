@@ -76,6 +76,18 @@ console.log(playRound());
 console.log("Human score = " + humanScore)
 console.log("Computer score = " + computerScore)
 
+function playGame() {
+    while (humanScore+computerScore <= 5) {
+        getHumanChoice();
+        getComputerChoice();
+        playRound();
+        console.log("Human score = " + humanScore)
+        console.log("Computer score = " + computerScore)
+    }
+}
+
+playGame();
+
 // console.log("Round "+round+". "+winner);
 
 // if (round === 5){
