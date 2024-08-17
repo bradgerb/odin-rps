@@ -5,6 +5,7 @@ let humanChoice = "";
 let computerScore = 0;
 let humanScore = 0;
 let winMessage = "";
+let end = 0;
 
 function getComputerChoice() {
     let n = Math.random();
@@ -42,7 +43,7 @@ function getHumanChoice() {
 
 console.log(getHumanChoice(humanChoice));
 
-function playRound(humanChoice, computerChoice) {
+function playRound() {
     let round = 1;
     let winner = "";
     // while (round <= 5){
@@ -78,13 +79,19 @@ function playRound(humanChoice, computerChoice) {
             }
         }
         console.log("Round "+round+". "+winner);
+        if (round === 5){
+            end++;
+        }
     }
 
-    if (humanScore > computerScore) {
-        winMessage="You win!"
-    } else {
-        winMessage="Computer wins."
+    if (end > 0){
+        if (humanScore > computerScore) {
+            winMessage="You win!"
+        } else {
+            winMessage="Computer wins."
+        }
     }
+
     console.log("Final score, player " + humanScore + ", computer " + computerScore + ". " + winMessage);
 
     // return winMessage
