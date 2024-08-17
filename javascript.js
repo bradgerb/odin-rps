@@ -4,8 +4,6 @@ let computerChoice = "";
 let humanChoice = "";
 let computerScore = 0;
 let humanScore = 0;
-let winMessage = "";
-let end = 0;
 
 function getComputerChoice() {
     let n = Math.random();
@@ -38,29 +36,35 @@ function getHumanChoice() {
 getHumanChoice();
 console.log(humanChoice);
 
-function playRound() {
-    let winner = "";
+function playRound(winner) {
+    // let winner = "";
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
             winner = "Tie, play again";
         } else if (computerChoice === "paper") {
             winner = "You lose, paper beats rock.";
+            computerScore++;
         } else {
             winner = "You win, rock beats scissors.";
+            humanScore++
         }
     } else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
             winner = "You win, paper beats rock.";
+            humanScore++
         } else if (computerChoice === "paper") {
             winner = "Tie, play again";
         } else {
             winner = "You lose, scissors beats paper.";
+            computerScore++
         }
     } else {
         if (computerChoice === "rock") {
             winner = "You lose, rock beats scissors.";
+            computerScore++
         } else if (computerChoice === "paper") {
             winner = "You win, scissors beats paper";
+            humanScore++
         } else {
             winner = "Tie, play again";
         }
@@ -68,9 +72,9 @@ function playRound() {
     return winner
 }
 
-// playRound();
 console.log(playRound());
-
+console.log("Human score = " + humanScore)
+console.log("Computer score = " + computerScore)
 
 // console.log("Round "+round+". "+winner);
 
