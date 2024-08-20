@@ -78,13 +78,13 @@ console.log("Computer score = " + computerScore)
 
 function playGame() {
     let round = 0;
-    while (round < 4) {
-        round = humanScore + computerScore;
+    while (round < 5) {
         getHumanChoice();
         getComputerChoice();
         console.log(playRound());
         console.log("Human score = " + humanScore)
         console.log("Computer score = " + computerScore)
+        round = humanScore + computerScore;
     }
     if (round = 5) {
         if (computerScore > humanScore) {
