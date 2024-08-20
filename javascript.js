@@ -96,22 +96,3 @@ function playGame() {
 }
 
 playGame();
-
-// console.log("Round "+round+". "+winner);
-
-// if (round === 5){
-//     end++;
-// }
-
-// if (end > 0){
-//     if (humanScore > computerScore) {
-//         winMessage="You win!"
-//     } else {
-//         winMessage="Computer wins."
-//     }
-// }
-
-// console.log("Final score, player " + humanScore + ", computer " + computerScore + ". " + winMessage);
-
-    // return winMessage
-// }
