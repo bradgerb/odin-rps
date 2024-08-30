@@ -18,7 +18,7 @@ function getComputerChoice() {
     }
 }
 
-getComputerChoice();
+// getComputerChoice();
 console.log(computerChoice);
 
 function getHumanChoice() {
@@ -33,7 +33,7 @@ function getHumanChoice() {
     }
 }
 
-getHumanChoice();
+// getHumanChoice();
 console.log(humanChoice);
 
 function playRound(winner) {
@@ -72,27 +72,48 @@ function playRound(winner) {
     return winner
 }
 
-console.log(playRound());
+// console.log(playRound());
 console.log("Human score = " + humanScore)
 console.log("Computer score = " + computerScore)
 
-function playGame() {
-    let round = 0;
-    while (round < 5) {
-        getHumanChoice();
-        getComputerChoice();
-        console.log(playRound());
-        console.log("Human score = " + humanScore)
-        console.log("Computer score = " + computerScore)
-        round = humanScore + computerScore;
-    }
-    if (round = 5) {
-        if (computerScore > humanScore) {
-            console.log ("Game over, you lose.")
-        } else {
-            console.log ("Game over, you win!")
-        }
-    }
-}
+// function playGame() {
+//     let round = 0;
+//     while (round < 5) {
+//         getHumanChoice();
+//         getComputerChoice();
+//         console.log(playRound());
+//         console.log("Human score = " + humanScore)
+//         console.log("Computer score = " + computerScore)
+//         round = humanScore + computerScore;
+//     }
+//     if (round = 5) {
+//         if (computerScore > humanScore) {
+//             console.log ("Game over, you lose.")
+//         } else {
+//             console.log ("Game over, you win!")
+//         }
+//     }
+// }
 
-playGame();
+// playGame();
+
+const container = document.querySelector(".container");
+
+    const buttons = document.createElement("div");
+
+        const rock = document.createElement("button");
+        rock.classList.add("button");
+        rock.textContent = "Rock";
+        buttons.appendChild(rock);
+
+        const paper = document.createElement("button");
+        paper.classList.add("button");
+        paper.textContent = "Paper";
+        buttons.appendChild(paper);
+
+        const scissors = document.createElement("button");
+        scissors.classList.add("button");
+        scissors.textContent = "Scissors";
+        buttons.appendChild(scissors);
+
+    container.appendChild(buttons);
