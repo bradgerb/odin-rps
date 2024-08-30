@@ -2,3 +2,8 @@
     border: solid black;
     background-color: peachpuff;
 }
+
+.button{
+    padding: 5px;
+    margin: 10px;
+}
