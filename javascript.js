@@ -38,7 +38,8 @@ function getComputerChoice() {
 // console.log(humanChoice);
 
 function playRound(winner) {
-    // let winner = "";
+    getComputerChoice();
+    console.log(computerChoice);
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
             winner = "Tie, play again";
@@ -70,12 +71,13 @@ function playRound(winner) {
             winner = "Tie, play again";
         }
     }
+    console.log("Human score = " + humanScore)
+    console.log("Computer score = " + computerScore)
     return winner
 }
 
 // console.log(playRound());
-// console.log("Human score = " + humanScore)
-// console.log("Computer score = " + computerScore)
+
 
 // function playGame() {
 //     let round = 0;
@@ -100,27 +102,29 @@ function playRound(winner) {
 
 const container = document.querySelector(".container");
 
-    const buttons = document.createElement("div");
+    const rock = document.createElement("button");
+    rock.classList.add("button");
+    rock.textContent = "Rock";
+    rock.addEventListener("click", pickedRock);
+    container.appendChild(rock);
 
-        const rock = document.createElement("button");
-        rock.classList.add("button");
-        rock.textContent = "Rock";
-        rock.addEventListener("click", pickedRock);
-        buttons.appendChild(rock);
+    const paper = document.createElement("button");
+    paper.classList.add("button");
+    paper.textContent = "Paper";
+    paper.addEventListener("click", pickedPaper);
+    container.appendChild(paper);
 
-        const paper = document.createElement("button");
-        paper.classList.add("button");
-        paper.textContent = "Paper";
-        paper.addEventListener("click", pickedPaper);
-        buttons.appendChild(paper);
+    const scissors = document.createElement("button");
+    scissors.classList.add("button");
+    scissors.textContent = "Scissors";
+    scissors.addEventListener("click", pickedScissors);
+    container.appendChild(scissors);
+  
+const buttons = document.querySelectorAll("button");
 
-        const scissors = document.createElement("button");
-        scissors.classList.add("button");
-        scissors.textContent = "Scissors";
-        scissors.addEventListener("click", pickedScissors);
-        buttons.appendChild(scissors);
-
-    container.appendChild(buttons);
+    buttons.forEach((button) => {
+        button.addEventListener("click", playRound)
+    });
 
 function pickedRock() {
     humanChoice = "rock";
