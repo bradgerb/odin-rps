@@ -74,6 +74,18 @@ function playRound(winner) {
     results.textContent = "Score = Human: " + humanScore + "; Computer: " + computerScore;
     console.log("Human score = " + humanScore)
     console.log("Computer score = " + computerScore)
+
+    selection.textContent = "You picked: " + humanChoice + "; computer picked: " + computerChoice;
+
+    if (humanScore+computerScore === 5){
+        const announceWinner = document.createElement("div");
+        announceWinner.classList.add("winner");
+        announceWinner.textContent = "TEST";
+        container.appendChild(announceWinner);
+        humanScore = 0;
+        computerScore = 0;
+    }
+
     return winner
 }
 
@@ -121,11 +133,14 @@ const container = document.querySelector(".container");
     scissors.addEventListener("click", pickedScissors);
     container.appendChild(scissors);
 
+    const selection = document.createElement("div");
+    container.appendChild(selection);
+
     const results = document.createElement("div");
     results.classList.add("results");
     results.textContent = "Score = Human: " + humanScore + "; Computer: " + computerScore;
     container.appendChild(results);
-  
+ 
 const buttons = document.querySelectorAll("button");
 
     buttons.forEach((button) => {

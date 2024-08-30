@@ -13,3 +13,8 @@
     border-top: solid black;
 
 }
+
+.winner{
+    background-color: lightgreen;
+    border-top: solid black;
+}
