@@ -38,6 +38,9 @@ function getComputerChoice() {
 // console.log(humanChoice);
 
 function playRound(winner) {
+
+    resetScore()
+
     getComputerChoice();
     console.log(computerChoice);
     if (humanChoice === "rock") {
@@ -77,16 +80,29 @@ function playRound(winner) {
 
     selection.textContent = "You picked: " + humanChoice + "; computer picked: " + computerChoice;
 
-    if (humanScore+computerScore === 5){
-        const announceWinner = document.createElement("div");
-        announceWinner.classList.add("winner");
-        announceWinner.textContent = "TEST";
-        container.appendChild(announceWinner);
-        humanScore = 0;
-        computerScore = 0;
-    }
+    showWinner();
 
     return winner
+}
+
+function showWinner(){
+    if (humanScore+computerScore === 5){
+        if (humanScore > computerScore){
+            announceWinner.textContent = "You Win!";
+        }else{
+            announceWinner.textContent = "You Lose.";
+        }
+        
+        container.appendChild(announceWinner);
+    }
+}
+
+function resetScore(){
+    if (humanScore+computerScore === 5){
+        humanScore = 0;
+        computerScore = 0;
+        container.removeChild(announceWinner);
+    }
 }
 
 // console.log(playRound());
@@ -140,6 +156,9 @@ const container = document.querySelector(".container");
     results.classList.add("results");
     results.textContent = "Score = Human: " + humanScore + "; Computer: " + computerScore;
     container.appendChild(results);
+
+    const announceWinner = document.createElement("div");
+    announceWinner.classList.add("winner");
  
 const buttons = document.querySelectorAll("button");
 
