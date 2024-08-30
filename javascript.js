@@ -71,6 +71,7 @@ function playRound(winner) {
             winner = "Tie, play again";
         }
     }
+    results.textContent = "Score = Human: " + humanScore + "; Computer: " + computerScore;
     console.log("Human score = " + humanScore)
     console.log("Computer score = " + computerScore)
     return winner
@@ -119,6 +120,11 @@ const container = document.querySelector(".container");
     scissors.textContent = "Scissors";
     scissors.addEventListener("click", pickedScissors);
     container.appendChild(scissors);
+
+    const results = document.createElement("div");
+    results.classList.add("results");
+    results.textContent = "Score = Human: " + humanScore + "; Computer: " + computerScore;
+    container.appendChild(results);
   
 const buttons = document.querySelectorAll("button");
 
@@ -140,3 +146,4 @@ function pickedScissors() {
     humanChoice = "scissors";
     console.log(humanChoice);
 }
+
